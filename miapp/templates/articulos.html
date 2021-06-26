@@ -11,6 +11,13 @@ articulos
 {%block content%}
     <h2 class="title">Listado de articulos</h2>
     <hr/>
+        {%if messages %}
+        {%for message in messages%}
+            <div class="message">
+                {{message}}
+            </div>
+        {%endfor%}
+    {%endif%}
     <ul>
         {%for articulo in articulos%}
             <li>

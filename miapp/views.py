@@ -3,6 +3,7 @@ from datetime import datetime
 from miapp.models import Article
 from django.db.models import Q
 from miapp.forms import FormArticle
+from django.contrib import messages
 
 def index(request):
     lenguajes=['javascript','pyhton','php','c++']
@@ -124,6 +125,8 @@ def create_full_article(request):
                 published=published
             )
             articulo.save()
+            #create flash message
+            messages.success(request,f'has creado correctamente el articulo: {articulo.id}')
             return redirect (articulos)
     else:
         formulario=FormArticle()

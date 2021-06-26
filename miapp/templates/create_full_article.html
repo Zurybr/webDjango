@@ -8,6 +8,16 @@ Formulario
 
 {%block content%}
     <h2 class="title">Formulario2</h2>
+    
+    {% if form.errors %}
+        <strong class="rojo">
+            Hay errores en el formulario
+            {{form.errors}}
+        </strong>
+    {% endif %}
+
+
+
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
