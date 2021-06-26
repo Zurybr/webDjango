@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from datetime import datetime
 from miapp.models import Article
 from django.db.models import Q
+from miapp.forms import FormArticle
 
 def index(request):
     lenguajes=['javascript','pyhton','php','c++']
@@ -103,3 +104,22 @@ def makearticulo(request):
         )
         articulo.save()
         return HttpResponse(f"<h1>El articulo {articulo.title} se ha creado</h1>")    
+
+def create_article(request):
+    return HttpResponse("g")
+
+
+def create_full_article(request):
+    if request.method=='POST':
+        formulario=FormArticle(request.POST)
+
+        if formulario.is_valid():
+            data_form=formulario.cleaned_data
+            title=data_form.get('title')
+            content=data_form['content']
+            published=data_form['published']
+            return HttpResponse(f"{title} {content} {published}")
+    else:
+        formulario=FormArticle()
+    
+    return render(request,'create_full_article.html',{'form':formulario})

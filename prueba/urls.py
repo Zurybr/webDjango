@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from miapp.views import articulos, borrararticulo, creararticulo, editararticulo, formulario, hola_mundo, index, makearticulo, pordefecto, redireccionar, sacararticulo
+from miapp.views import articulos, borrararticulo, creararticulo, create_full_article, editararticulo, formulario, hola_mundo, index, makearticulo, pordefecto, redireccionar, sacararticulo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +29,5 @@ urlpatterns = [
     path('articulos/',articulos,name="articulos"),
     path('borrar/<int:id>/',borrararticulo,name="borrar"),
     path('formulario/',formulario,name="formulario"),
-    path('makearticulo/',makearticulo,name="makearticulo"),
+    path('create/',create_full_article,name="create_full"),
 ]
