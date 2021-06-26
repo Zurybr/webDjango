@@ -1,0 +1,49 @@
+{% extends 'layout.html'%}
+
+
+{%block title%}
+{{title}}
+{%endblock%}
+
+<!--comentario en html-->
+{% comment 'nota para el comentario' %}
+comentario de django
+{% endcomment %}
+
+
+{%block content%}
+<h2 class="title">{{title}}</h2>
+<!--if en django -->
+{%if mi_variable and mi_variable == 'dato'  %}
+    <p>{{mi_variable}}</p>
+{%else%}
+    <strong>El nombre no existe</strong>
+{%endif%}
+
+<h3>Lenguajes de programacion</h3>
+<ul>
+    {%for lenguaje in lenguajes%}
+        <li>{{forloop.revcounter0}}. {{lenguaje}}</li>
+    {%empty%}
+        <li>no hay nada que mostrar</li>
+    {% endfor %}
+</ul>       
+
+<p>
+    {{lenguajes|join:', '}}
+</p>
+<p>
+    {{lenguajes|length}}
+</p>
+<p>
+    {{lenguajes|random}}
+</p>
+<p>
+    {{"hola"|upper}}
+</p>
+<p>
+    {{"<p>este</p> <br/>es<h1> un</h1> texto de prueba"|striptags|wordcount}}
+</p>
+{% load filters %}
+{{"brandom"|saludo|safe}}
+{%endblock%}

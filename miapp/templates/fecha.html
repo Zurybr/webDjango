@@ -1,0 +1,14 @@
+<h1>la fecha actual es</h1>
+<p>{{fechas}}</p>
+
+<h3>años pares hasta el 2050</h3>
+    <ul>
+        {%for year in years %}
+            {%if year|divisibleby:2 == True %}
+                <li>{{year}}</li>
+            {%endif%}
+        {%endfor%}
+    </ul>
+<hr/>
+<h2>{{saludo}}</h2>
+<hr/>

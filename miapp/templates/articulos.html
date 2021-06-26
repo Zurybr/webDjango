@@ -1,0 +1,26 @@
+{% extends 'layout.html'%}
+
+
+{%block title%}
+articulos
+{%endblock%}
+
+
+
+
+{%block content%}
+    <h2 class="title">Listado de articulos</h2>
+    <hr/>
+    <ul>
+        {%for articulo in articulos%}
+            <li>
+                {{articulo.id}}. {{articulo.title}}
+                <br/>
+                {{articulo.content}}<br/>
+                {{articulo.created_at}}
+                <br/>
+                <a href='{% url 'borrar' articulo.id %}'>eliminar</a>
+            </li><br/>
+        {% endfor %}
+    </ul>
+{%endblock%}

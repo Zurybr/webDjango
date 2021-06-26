@@ -1,0 +1,14 @@
+{% extends 'layout.html'%}
+
+{%block title%}
+Pagina hola mundo
+{%endblock%}
+
+{%block content%}
+{{block.super}}
+{% include 'fecha.html' with saludo="hola desde plantilla" %}
+<!--se le puede poner only para heredar solo la variable saludo-->
+<h2 class="title">Hola mundo</h2>
+<br/>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis illum sint, fugit corrupti facere nisi, aliquam velit, tempora soluta at voluptate ullam eos quod mollitia ea? Ut quibusdam facere repellat!</p>
+{%endblock%}
