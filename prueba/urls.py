@@ -30,4 +30,5 @@ urlpatterns = [
     path('borrar/<int:id>/',borrararticulo,name="borrar"),
     path('formulario/',formulario,name="formulario"),
     path('create/',create_full_article,name="create_full"),
+    path('makearticulo/',makearticulo,name="makearticulo"),
 ]

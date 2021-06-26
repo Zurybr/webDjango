@@ -67,7 +67,7 @@ def articulos(request):
         Q(title__contains="articulo")|Q(published=True)
     )
     '''
-    articulos=Article.objects.all()
+    articulos=Article.objects.all().order_by("-id")
     return render(request,'articulos.html',{'articulos':articulos})
 
 def borrararticulo(request,id):
@@ -118,7 +118,13 @@ def create_full_article(request):
             title=data_form.get('title')
             content=data_form['content']
             published=data_form['published']
-            return HttpResponse(f"{title} {content} {published}")
+            articulo=Article(
+                title=title,
+                content=content,
+                published=published
+            )
+            articulo.save()
+            return redirect (articulos)
     else:
         formulario=FormArticle()
     
