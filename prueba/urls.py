@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from miapp.views import articulos, borrararticulo, creararticulo, create_full_article, editararticulo, formulario, hola_mundo, index, makearticulo, pordefecto, redireccionar, sacararticulo
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,3 +33,8 @@ urlpatterns = [
     path('create/',create_full_article,name="create_full"),
     path('makearticulo/',makearticulo,name="makearticulo"),
 ]
+
+#configuración para cargar imagenes
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

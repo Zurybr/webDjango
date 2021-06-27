@@ -68,7 +68,8 @@ def articulos(request):
         Q(title__contains="articulo")|Q(published=True)
     )
     '''
-    articulos=Article.objects.all().order_by("-id")
+    #articulos=Article.objects.all().order_by("-id")
+    articulos=Article.objects.filter(published=True).order_by("-id")
     return render(request,'articulos.html',{'articulos':articulos})
 
 def borrararticulo(request,id):

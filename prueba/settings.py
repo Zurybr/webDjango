@@ -29,7 +29,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#si quiero cambiar los ajustes de miapp
+#se pone miapp.apps.MiappConfig
+#donde MiappConfig es la configuracion dentro del archivo apps.py dentro de la carpeta de la app
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'miapp'
+    
 ]
 
 MIDDLEWARE = [
@@ -119,6 +122,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+#agregar Media files
+MEDIA_URL = '/media/' 
+import os
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

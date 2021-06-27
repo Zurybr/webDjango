@@ -18,16 +18,24 @@ articulos
             </div>
         {%endfor%}
     {%endif%}
-    <ul>
-        {%for articulo in articulos%}
-            <li>
-                {{articulo.id}}. {{articulo.title}}
-                <br/>
-                {{articulo.content}}<br/>
-                {{articulo.created_at}}
-                <br/>
-                <a href='{% url 'borrar' articulo.id %}'>eliminar</a>
-            </li><br/>
-        {% endfor %}
-    </ul>
+
+    {%for articulo in articulos%}
+        <article class="article-item">
+            <div class="image">
+                {%if articulo.image and articulo.image != 'null'%}
+                    <img src='{{articulo.image.url}}'>
+                {%endif%}
+            </div>
+            <div class='data'>
+                <h2>{{articulo.id}}. {{articulo.title}}</h2>
+               
+                {{articulo.content}}
+                <span class='date'>{{articulo.created_at}}</span>
+                
+                <a href='{% url 'borrar' articulo.id %}' class='btn btn=delete'>eliminar</a>
+            </div>
+            <div class="clearfix"></div>
+        </article>
+    {% endfor %}
+
 {%endblock%}
